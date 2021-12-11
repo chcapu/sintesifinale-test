@@ -17,6 +17,7 @@ function setup() {
   //text settings for animated array
   textFont("IBM Plex Mono");
   textSize(20);
+  textStyle(NORMAL);
   textAlign(CENTER);
 }
 
@@ -36,4 +37,8 @@ function draw() {
       text(textArray[textIndex][b], horSpace*b+a*dxOff, (a*40));
     }
   }; pop();
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
