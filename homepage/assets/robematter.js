@@ -56,10 +56,10 @@ function Box(source, x, y, w, h, name) {
     rotate(angle);
     rectMode(CENTER);
     rect(0, 0, this.w, this.h, 20);
-    fill(255);
-    text(name,0,0);
-    // imageMode(CENTER);
-    // image(source, 0, 0, this.w, this.h);
+    // fill(255);
+    // text(name,0,0);
+    imageMode(CENTER);
+    image(source, 0, 0, 100, 100);
     pop();
   };
 }

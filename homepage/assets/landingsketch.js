@@ -50,10 +50,13 @@ let mouse;
 /////////////////////////////////////////////////////////////////
 
 function preload(){
-  image1 = loadImage("./assets/images/ehi.jpg");
-  image2 = loadImage("./assets/images/2.JPG");
-  image3 = loadImage("./assets/images/1.jpeg");
-  image4 = loadImage("./assets/images/4.jpg");
+  // image1 = loadImage("./assets/images/ehi.jpg");
+  // image2 = loadImage("./assets/images/2.JPG");
+  // image3 = loadImage("./assets/images/1.jpeg");
+  // image4 = loadImage("./assets/images/4.jpg");
+  for (let i = 0; i <= 9; i++) {
+    myImages[i] = loadImage("./assets/images/logo" + i + ".png");
+  }
 }
 
 /////////////////////////// SETUP //////////////////////////////
@@ -67,7 +70,7 @@ function setup() {
   world = engine.world;
   engine.world.gravity.y = 0.9;
   Matter.Runner.run(engine);
-  myImages.push(image1, image2, image3, image4);
+  //myImages.push(image1, image2, image3, image4);
 
 //Boundaries
   // push()
@@ -155,7 +158,7 @@ function draw() {
   pop();
 
   //matter.js interaction : draw
-  if (boxes.length <= 3) {
+  if (boxes.length <= 9) {
     //for (let i = 0; i < 1; i++) {
     boxes.push(new Box(myImages[0], windowWidth/2, windowHeight/2, 280, 280, "Netflix")); //netflix
     boxes.push(new Box(myImages[1], windowWidth/2, windowHeight/2, 270, 270, "Prime Video")); //prime video
