@@ -138,7 +138,7 @@ function setup() {
 function draw() {
   push();
   blendMode(HARD_LIGHT);
-  background("rgba(245,245,245,1)");
+  background("rgba(240,255,240,.4)");
   pop();
 
   //animated text array effect : draw
@@ -181,7 +181,10 @@ function draw() {
 
 
   //pixel texture effect : draw
+  push();
+  blendMode(MULTIPLY);
   image(noiseGra, 0, 0);
+  pop();
 }
 
 function windowResized() {

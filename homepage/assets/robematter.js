@@ -52,6 +52,7 @@ function Box(source, x, y, w, h, name) {
 
     push();
     translate(pos.x, pos.y);
+    blendMode(BLEND);
     fill(0);
     rotate(angle);
     rectMode(CENTER);
