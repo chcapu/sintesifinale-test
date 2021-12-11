@@ -55,7 +55,7 @@ function draw() {
   }; pop();
 
   //pixel texture effect : draw
-  image(noiseGra, 0, 0);
+  //image(noiseGra, 0, 0);
 }
 
 function windowResized() {

@@ -3,3 +3,10 @@ html, body {
     padding: 0;
     cursor: default;
 }
+
+canvas {
+  display: block;
+  /* position: absolute; */
+  top: 0;
+  z-index: -1;
+}
