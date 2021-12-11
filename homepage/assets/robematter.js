@@ -1,10 +1,9 @@
-
-function moveit() {
+function moveIt() {
   if (!mouse.position.x) return;
   // smoothly move the attractor body towards the mouse
   Body.translate(attractiveBody, {
-    x: (mouse.position.x - attractiveBody.position.x) * 0.12,
-    y: (mouse.position.y - attractiveBody.position.y) * 0.12,
+    x: (mouse.position.x - attractiveBody.position.x) * 0.2,
+    y: (mouse.position.y - attractiveBody.position.y) * 0.2,
   });
 }
 
@@ -29,7 +28,7 @@ function Boundary(x, y, w, h, a) {
       rotate(angle);
       rectMode(CENTER);
       strokeWeight(2);
-      noFill();
+      //noFill();
       rect(0, 0, this.w, this.h);
       pop();
   };
@@ -39,21 +38,22 @@ function Boundary(x, y, w, h, a) {
 function Box(source, x, y, w, h) {
   let options = {
     friction: 0.5,
-    restitution: 0.4,
+    restitution: 0.5,
     mass: 0.1,
   };
-  this.body = Bodies.rectangle(x, y, 100, 80, options);
+  this.body = Bodies.rectangle(x, y, w, h, options);
   this.w = w;
   this.h = h;
   World.add(world, this.body);
 
   this.show = function () {
     let pos = this.body.position;
-    // let angle = this.body.angle;
+    let angle = this.body.angle;
 
     push();
     translate(pos.x, pos.y);
-    // rotate(angle);
+    fill(0);
+    rotate(angle);
     // rectMode(CENTER);
     // rect(0, 0, this.w, this.h);
     imageMode(CENTER);

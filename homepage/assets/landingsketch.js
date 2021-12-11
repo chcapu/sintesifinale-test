@@ -63,11 +63,11 @@ function setup() {
 
   //matter.js interaction : setup
   engine = Engine.create();
-  myImages.push(image1, image2, image3, image4);
   let runner = Runner.create();
   world = engine.world;
-  engine.world.gravity.y = 0.2;
+  engine.world.gravity.y = 0.9;
   Matter.Runner.run(engine);
+  myImages.push(image1, image2, image3, image4);
 
   push()
   boundaries.push(new Boundary(width / 2, height, width, 10, 0));
@@ -84,7 +84,7 @@ function setup() {
       width: 100,
       height: 100,
       wireframes: false,
-      background: "rgb(240,240,240)",
+      background: "rgb(245,245,245)",
     },
   });
   World.add(world, render);
@@ -93,8 +93,8 @@ function setup() {
 
   attractiveBody = Bodies.circle(mouseX, mouseY, 10, {
     render: {
-      fillStyle: `rgb(240,240,240)`,
-      strokeStyle: `rgb(240,240,240)`,
+      fillStyle: `rgb(245,245,245)`,
+      strokeStyle: `rgb(245,245,245)`,
       lineWidth: 0,
     },
     isStatic: true,
@@ -142,29 +142,32 @@ function draw() {
   let textWid = textWidth(textArray[textIndex]);
   push();
   translate((windowWidth/2)-(textWid/2+400), -50);
-  for (var a=0; a<18; a++) {
-    for (var b=0; b < textArray[textIndex].length; b++) {
-      fill(5,30,145);
-      var dx = 40*sin(radians(t*2+b*30));
-      var dxOff = 20*sin(radians(t*2+a*20));
-      let letters = (textArray[textIndex].length)*textAscent();
-      text(textArray[textIndex][b], horSpace*b+a*dxOff, (a*40));
-    }
-  }; pop();
-
+  // for (var a=0; a<18; a++) {
+  //   for (var b=0; b < textArray[textIndex].length; b++) {
+  //     fill(5,30,145);
+  //     var dx = 40*sin(radians(t*2+b*30));
+  //     var dxOff = 20*sin(radians(t*2+a*20));
+  //     let letters = (textArray[textIndex].length)*textAscent();
+  //     text(textArray[textIndex][b], horSpace*b+a*dxOff, (a*40));
+  //   }
+  // };
+  pop();
 
   //matter.js interaction : draw
   if (boxes.length < 3) {
-    for (let i = 0; i < myImages.length; i++) {
-    boxes.push(new Box(myImages[i], windowWidth/2, windowHeight/2, 100, 80));
-    }
+    //for (let i = 0; i < 1; i++) {
+    boxes.push(new Box(myImages[0], windowWidth/2, windowHeight/2, 100, 80)); //netflix
+    boxes.push(new Box(myImages[1], windowWidth/2, windowHeight/2, 100, 80)); //prime video
+    boxes.push(new Box(myImages[2], windowWidth/2, windowHeight/2, 100, 80)); //youtube
+    boxes.push(new Box(myImages[3], windowWidth/2, windowHeight/2, 100, 80)); //twitch
+    //}
   }
 
   for (let i = 0; i < boxes.length; i++) {
     boxes[i].show();
   }
 
-  moveit();
+  moveIt();
 
 
   //pixel texture effect : draw
