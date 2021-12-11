@@ -69,12 +69,13 @@ function setup() {
   Matter.Runner.run(engine);
   myImages.push(image1, image2, image3, image4);
 
-  push()
-  boundaries.push(new Boundary(width / 2, height, width, 10, 0));
-  boundaries.push(new Boundary(width / 2, 0, width, 10, 0));
-  boundaries.push(new Boundary(0, height / 2, 10, height, 0));
-  boundaries.push(new Boundary(width, height / 2, 10, height, 0));
-  pop()
+//Boundaries
+  // push()
+  // boundaries.push(new Boundary(width / 2, height, width, 10, 0));
+  // boundaries.push(new Boundary(width / 2, 0, width, 10, 0));
+  // boundaries.push(new Boundary(0, height / 2, 10, height, 0));
+  // boundaries.push(new Boundary(width, height / 2, 10, height, 0));
+  // pop()
 
   render = Render.create({
     element: canvas.elt,
@@ -154,12 +155,18 @@ function draw() {
   pop();
 
   //matter.js interaction : draw
-  if (boxes.length < 3) {
+  if (boxes.length <= 3) {
     //for (let i = 0; i < 1; i++) {
-    boxes.push(new Box(myImages[0], windowWidth/2, windowHeight/2, 100, 80)); //netflix
-    boxes.push(new Box(myImages[1], windowWidth/2, windowHeight/2, 100, 80)); //prime video
-    boxes.push(new Box(myImages[2], windowWidth/2, windowHeight/2, 100, 80)); //youtube
-    boxes.push(new Box(myImages[3], windowWidth/2, windowHeight/2, 100, 80)); //twitch
+    boxes.push(new Box(myImages[0], windowWidth/2, windowHeight/2, 280, 280, "Netflix")); //netflix
+    boxes.push(new Box(myImages[1], windowWidth/2, windowHeight/2, 270, 270, "Prime Video")); //prime video
+    boxes.push(new Box(myImages[2], windowWidth/2, windowHeight/2, 250, 250, "YouTube")); //youtube
+    boxes.push(new Box(myImages[3], windowWidth/2, windowHeight/2, 220, 220, "Twitch")); //twitch
+    boxes.push(new Box(myImages[4], windowWidth/2, windowHeight/2, 190, 190, "Disney+"));
+    boxes.push(new Box(myImages[5], windowWidth/2, windowHeight/2, 150, 150, "Apple TV+"));
+    boxes.push(new Box(myImages[6], windowWidth/2, windowHeight/2, 130, 130, "Hulu"));
+    boxes.push(new Box(myImages[7], windowWidth/2, windowHeight/2, 120, 120, "HBO"));
+    boxes.push(new Box(myImages[8], windowWidth/2, windowHeight/2, 110, 110, "Peacock"));
+    boxes.push(new Box(myImages[9], windowWidth/2, windowHeight/2, 100, 100, "DAZN"));
     //}
   }
 

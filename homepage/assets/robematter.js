@@ -35,7 +35,7 @@ function Boundary(x, y, w, h, a) {
 }
 
 
-function Box(source, x, y, w, h) {
+function Box(source, x, y, w, h, name) {
   let options = {
     friction: 0.5,
     restitution: 0.5,
@@ -54,10 +54,12 @@ function Box(source, x, y, w, h) {
     translate(pos.x, pos.y);
     fill(0);
     rotate(angle);
-    // rectMode(CENTER);
-    // rect(0, 0, this.w, this.h);
-    imageMode(CENTER);
-    image(source, 0, 0, this.w, this.h);
+    rectMode(CENTER);
+    rect(0, 0, this.w, this.h, 20);
+    fill(255);
+    text(name,0,0);
+    // imageMode(CENTER);
+    // image(source, 0, 0, this.w, this.h);
     pop();
   };
 }
