@@ -145,7 +145,7 @@ function draw() {
   t++;
   let textWid = textWidth(textArray[textIndex]);
   push();
-  translate((windowWidth/2)-(textWid/2+400), -50);
+  // translate((windowWidth/2)-(textWid/2+400), -50);
   // for (var a=0; a<18; a++) {
   //   for (var b=0; b < textArray[textIndex].length; b++) {
   //     fill(5,30,145);
@@ -163,13 +163,13 @@ function draw() {
     boxes.push(new Box(myImages[0], windowWidth/2, windowHeight/2, 280, 280, "Netflix")); //netflix
     boxes.push(new Box(myImages[1], windowWidth/2, windowHeight/2, 270, 270, "Prime Video")); //prime video
     boxes.push(new Box(myImages[2], windowWidth/2, windowHeight/2, 250, 250, "YouTube")); //youtube
-    boxes.push(new Box(myImages[3], windowWidth/2, windowHeight/2, 220, 220, "Twitch")); //twitch
+    boxes.push(new Box(myImages[3], windowWidth/2, windowHeight/2, 240, 240, "Twitch")); //twitch
     boxes.push(new Box(myImages[4], windowWidth, windowHeight, 190, 190, "Disney+"));
     boxes.push(new Box(myImages[5], windowWidth, windowHeight, 150, 150, "Apple TV+"));
-    boxes.push(new Box(myImages[6], windowWidth, windowHeight, 130, 130, "Hulu"));
-    boxes.push(new Box(myImages[7], 0, 0, 120, 120, "HBO"));
-    boxes.push(new Box(myImages[8], 0, 0, 110, 110, "Peacock"));
-    boxes.push(new Box(myImages[9], 0, 0, 100, 100, "DAZN"));
+    boxes.push(new Box(myImages[6], windowWidth, windowHeight, 140, 140, "Hulu"));
+    boxes.push(new Box(myImages[7], 0, 0, 130, 130, "HBO"));
+    boxes.push(new Box(myImages[8], 0, 0, 120, 120, "Peacock"));
+    boxes.push(new Box(myImages[9], 0, 0, 110, 110, "DAZN"));
     //}
   }
 
@@ -181,7 +181,7 @@ function draw() {
 
 
   //pixel texture effect : draw
-  //image(noiseGra, 0, 0);
+  image(noiseGra, 0, 0);
 }
 
 function windowResized() {
