@@ -39,12 +39,13 @@ function setup() {
   canvas = createCanvas(windowWidth,windowHeight);
   background("rgb(245,245,245)");
 
-  // create engine
+  // matter.js : setup
   engine = Engine.create();
+  runner = Runner.create();
   world = engine.world;
-  engine.world.gravity.y = -1;
+  //engine.gravity.y = -1;
+  Matter.Runner.run(engine);
 
-  // create renderer
   render = Render.create({
     element: canvas.elt,
     engine: engine,
@@ -53,12 +54,12 @@ function setup() {
         height: 600,
         showVelocity: true,
         showAngleIndicator: true,
-        background: "red"
+        wireframes: false,
+        background: "rgb(245,245,245)",
     }
-  }); Render.run(render);
-
-  // create runner
-  runner = Runner.create();
+  });
+  Composite.add(world, render);
+  Render.run(render);
   Runner.run(runner, engine);
 
 
@@ -69,34 +70,34 @@ function setup() {
       Bodies.rectangle(800, 300, 50, 600, { isStatic: true }),
       Bodies.rectangle(0, 300, 50, 600, { isStatic: true })
   ]);
+  engine.gravity.y = -1;
 
-  stack = Composites.stack(50, 120, 11, 5, 0, 0, function(x, y) {
-      switch (Math.round(Common.random(0, 1))) {
-
-      case 0:
-          if (Common.random() < 0.8) {
-              return Bodies.rectangle(x, y, Common.random(20, 50), Common.random(20, 50));
-          } else {
-              return Bodies.rectangle(x, y, Common.random(80, 120), Common.random(20, 30));
-          }
-      case 1:
-          return Bodies.polygon(x, y, Math.round(Common.random(1, 8)), Common.random(20, 50));
-      }
-  });
-
-  Composite.add(world, stack);
+  // stack = Composites.stack(50, 120, 11, 5, 0, 0, function(x, y) {
+  //     switch (Math.round(Common.random(0, 1))) {
+  //
+  //     case 0:
+  //         if (Common.random() < 0.8) {
+  //             return Bodies.rectangle(x, y, Common.random(20, 50), Common.random(20, 50));
+  //         } else {
+  //             return Bodies.rectangle(x, y, Common.random(80, 120), Common.random(20, 30));
+  //         }
+  //     case 1:
+  //         return Bodies.polygon(x, y, Math.round(Common.random(1, 8)), Common.random(20, 50));
+  //     }
+  // });
+  //Composite.add(world, stack);
 
   // add mouse control
   mouse = Mouse.create(render.canvas);
   mouseConstraint = MouseConstraint.create(engine, {
-          mouse: mouse,
-          constraint: {
-              stiffness: 0.2,
-              render: {
-                  visible: false
-              }
-          }
-      });
+    mouse: mouse,
+    constraint: {
+      stiffness: 0.2,
+      render: {
+        visible: false
+      }
+    }
+  });
 
   Composite.add(world, mouseConstraint);
 

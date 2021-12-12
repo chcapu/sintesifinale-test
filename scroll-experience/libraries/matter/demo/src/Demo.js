@@ -40,6 +40,8 @@ var demo = function(examples, isDev) {
     document.body.appendChild(demo.dom.root);
     document.title = 'Matter.js Demo' + (isDev ? ' ・ Dev' : '');
 
+    MatterTools.Demo.start(demo);
+
     if (isDev) {
         var buttonSource = demo.dom.buttonSource;
         var buttonCompare = buttonSource.cloneNode(true);
@@ -53,13 +55,7 @@ var demo = function(examples, isDev) {
             event.preventDefault();
         });
         buttonSource.parentNode.insertBefore(buttonCompare, buttonSource.nextSibling);
-
-        Matter.before('Render.create', function(renderOptions) {
-            renderOptions.options.showDebug = true;
-        });
     }
-
-    MatterTools.Demo.start(demo);
 };
 
 module.exports = { demo: demo };

@@ -10,10 +10,10 @@ let angl = 0;
 loading = true;
 
 //for the animated text
-let t = 0;
-let textArray = ["ARE YOU STILL WATCHING?  ARE YOU STILL WATCHING?  ARE YOU STILL WATCHING?  ARE YOU STILL WATCHING?  ARE YOU STILL WATCHING?"];
-let textIndex = 0;
-let horSpace = 30;
+// let t = 0;
+// let textArray = ["ARE YOU STILL WATCHING?  ARE YOU STILL WATCHING?  ARE YOU STILL WATCHING?  ARE YOU STILL WATCHING?  ARE YOU STILL WATCHING?"];
+// let textIndex = 0;
+// let horSpace = 30;
 
 //for the pixel texture effect
 let noiseGra;
@@ -123,10 +123,10 @@ function setup() {
 
 
   //text settings for animated array : setup
-  textFont("IBM Plex Mono");
-  textSize(20);
-  textStyle(NORMAL);
-  textAlign(CENTER);
+  // textFont("IBM Plex Mono");
+  // textSize(20);
+  // textStyle(NORMAL);
+  // textAlign(CENTER);
 
   //pixel texture effect : setup
   noiseGra = createGraphics(windowWidth, windowHeight);
@@ -143,32 +143,32 @@ function setup() {
 function draw() {
   push();
   blendMode(HARD_LIGHT);
-  background("rgba(240,255,240,.4)");
+  background("rgba(240,255,240,.6)");
   pop();
 
   //animated text array effect : draw
-  t++;
-  let textWid = textWidth(textArray[textIndex]);
-  push();
-  // translate((windowWidth/2)-(textWid/2+400), -50);
-  // for (var a=0; a<18; a++) {
-  //   for (var b=0; b < textArray[textIndex].length; b++) {
-  //     fill(5,30,145);
-  //     var dx = 40*sin(radians(t*2+b*30));
-  //     var dxOff = 20*sin(radians(t*2+a*20));
-  //     let letters = (textArray[textIndex].length)*textAscent();
-  //     text(textArray[textIndex][b], horSpace*b+a*dxOff, (a*40));
-  //   }
-  // };
-  pop();
+  // t++;
+  // let textWid = textWidth(textArray[textIndex]);
+  // push();
+  // // translate((windowWidth/2)-(textWid/2+400), -50);
+  // // for (var a=0; a<18; a++) {
+  // //   for (var b=0; b < textArray[textIndex].length; b++) {
+  // //     fill(5,30,145);
+  // //     var dx = 40*sin(radians(t*2+b*30));
+  // //     var dxOff = 20*sin(radians(t*2+a*20));
+  // //     let letters = (textArray[textIndex].length)*textAscent();
+  // //     text(textArray[textIndex][b], horSpace*b+a*dxOff, (a*40));
+  // //   }
+  // // };
+  // pop();
 
   //matter.js interaction : draw
   if (boxes.length <= 9) {
     //for (let i = 0; i < 1; i++) {
-    boxes.push(new Box(myImages[0], windowWidth/2, windowHeight/2, 280, 280, "Netflix")); //netflix
-    boxes.push(new Box(myImages[1], windowWidth/2, windowHeight/2, 270, 270, "Prime Video")); //prime video
-    boxes.push(new Box(myImages[2], windowWidth/2, windowHeight/2, 250, 250, "YouTube")); //youtube
-    boxes.push(new Box(myImages[3], windowWidth/2, windowHeight/2, 240, 240, "Twitch")); //twitch
+    boxes.push(new Box(myImages[0], windowWidth/2, windowHeight/2, 260, 260, "Netflix")); //netflix
+    boxes.push(new Box(myImages[1], windowWidth/2, windowHeight/2, 250, 250, "Prime Video")); //prime video
+    boxes.push(new Box(myImages[2], windowWidth/2, windowHeight/2, 240, 240, "YouTube")); //youtube
+    boxes.push(new Box(myImages[3], windowWidth/2, windowHeight/2, 230, 230, "Twitch")); //twitch
     boxes.push(new Box(myImages[4], windowWidth, windowHeight, 190, 190, "Disney+"));
     boxes.push(new Box(myImages[5], windowWidth, windowHeight, 150, 150, "Apple TV+"));
     boxes.push(new Box(myImages[6], windowWidth, windowHeight, 140, 140, "Hulu"));
@@ -193,5 +193,5 @@ function draw() {
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  canvas = resizeCanvas(windowWidth, windowHeight);
 }

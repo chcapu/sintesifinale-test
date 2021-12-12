@@ -3,21 +3,22 @@ function Content(x, y) {
     friction: 0.5,
     restitution: 0.5,
     mass: 0.1,
+    isStatic: false
   };
   this.body = Bodies.rectangle(x, y, this.w, this.h);
-	Composite.add(world, this.body);
 	this.w = 100;
 	this.h = 50;
+  Composite.add(world, this.body);
 
   this.show = function() {
-		var pos = this.body.position;
-		var angle = this.body.angle;
+		let pos = this.body.position;
+		let angle = this.body.angle;
 
 		push();
 		fill(0);
-		ellipseMode(CENTER);
-		translate(pos.x, pos.y);
+    translate(pos.x, pos.y);
 		rotate(angle);
+    ellipseMode(CENTER);
 		ellipse(x, y, this.w);
 		pop();
 	}
