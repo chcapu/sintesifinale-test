@@ -5,6 +5,10 @@ Matter.use("matter-attractors");
 
 //GLOBAL VARIABLES:
 
+//for the loading animation
+let angl = 0;
+loading = true;
+
 //for the animated text
 let t = 0;
 let textArray = ["ARE YOU STILL WATCHING?  ARE YOU STILL WATCHING?  ARE YOU STILL WATCHING?  ARE YOU STILL WATCHING?  ARE YOU STILL WATCHING?"];
@@ -50,18 +54,20 @@ let mouse;
 /////////////////////////////////////////////////////////////////
 
 function preload(){
-  // image1 = loadImage("./assets/images/ehi.jpg");
-  // image2 = loadImage("./assets/images/2.JPG");
-  // image3 = loadImage("./assets/images/1.jpeg");
-  // image4 = loadImage("./assets/images/4.jpg");
   for (let i = 0; i <= 9; i++) {
-    myImages[i] = loadImage("./assets/images/logo" + i + ".png");
+    myImages[i] = loadImage("./assets/images/logo" + i + ".png", imagesLoaded);
   }
+}
+
+function imagesLoaded() {
+  console.log("images are loaded");
+  loading = false;
 }
 
 /////////////////////////// SETUP //////////////////////////////
 function setup() {
   canvas = createCanvas(windowWidth,windowHeight);
+  //canvas.style("z-index", "1");
   background("rgb(245,245,245)");
 
   //matter.js interaction : setup
@@ -70,7 +76,6 @@ function setup() {
   world = engine.world;
   engine.world.gravity.y = 0.9;
   Matter.Runner.run(engine);
-  //myImages.push(image1, image2, image3, image4);
 
 //Boundaries
   // push()
@@ -95,7 +100,7 @@ function setup() {
 
   mouse = Mouse.create(render.canvas.elt); //add mouse control
 
-  attractiveBody = Bodies.circle(mouseX, mouseY, 10, {
+  attractiveBody = Bodies.circle(mouseX, mouseY, 20, {
     render: {
       fillStyle: `rgb(245,245,245)`,
       strokeStyle: `rgb(245,245,245)`,
