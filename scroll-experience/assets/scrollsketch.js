@@ -7,6 +7,7 @@
 let Engine = Matter.Engine,
         Render = Matter.Render,
         Runner = Matter.Runner,
+        //World = Matter.World,
         Composites = Matter.Composites,
         Common = Matter.Common,
         MouseConstraint = Matter.MouseConstraint,
@@ -21,6 +22,8 @@ let runner;
 let stack;
 let mouse;
 let mouseConstraint;
+
+let contents = [];
 
 /////////////////////////////////////////////////////////////////
 
@@ -41,7 +44,7 @@ function setup() {
   render = Render.create({
     element: document.body,
     engine: engine,
-    gravity: -1,
+    //gravity: -1,
     options: {
         width: 800,
         height: 600,
@@ -113,12 +116,19 @@ function setup() {
           Matter.Runner.stop(runner);
       }
     };
-
 }
 
 
 /////////////////////////// DRAW //////////////////////////////
 function draw() {
+  // contents.push(new Content(400,500));
+  for (let i = 0; i < contents.length; i++) {
+    contents[i].show();
+  }
+}
+
+function mouseClicked() {
+  contents.push(new Content(mouseX, mouseY));
 }
 
 function windowResized() {
