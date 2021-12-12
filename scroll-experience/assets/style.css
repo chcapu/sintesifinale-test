@@ -8,27 +8,7 @@ html, body {
     margin: 0;
     padding: 0;
     cursor: default;
-    overflow: hidden;
-}
-
-.content-wrapper {
-    width: 100%;
-    z-index: -1;
-}
-
-.content {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-    position: absolute;
-    top: 20%;
-    justify-content: center;
-}
-
-h1 {
-  font-family: SpaceGrotesk;
-  font-size: 7vw;
-  color: rgb(5,30,145);
+    /* overflow: hidden; */
 }
 
 canvas {
