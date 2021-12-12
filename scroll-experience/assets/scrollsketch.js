@@ -7,13 +7,16 @@
 let Engine = Matter.Engine,
         Render = Matter.Render,
         Runner = Matter.Runner,
-        //World = Matter.World,
         Composites = Matter.Composites,
         Common = Matter.Common,
         MouseConstraint = Matter.MouseConstraint,
         Mouse = Matter.Mouse,
         Composite = Matter.Composite,
-        Bodies = Matter.Bodies;
+        Bodies = Matter.Bodies,
+        World = Matter.World,
+        Body = Matter.Body,
+        Events = Matter.Events,
+        Constraint = Matter.Constraint;
 
 let engine;
 let world;
@@ -23,6 +26,7 @@ let stack;
 let mouse;
 let mouseConstraint;
 
+let canvas;
 let contents = [];
 
 /////////////////////////////////////////////////////////////////
@@ -42,14 +46,14 @@ function setup() {
 
   // create renderer
   render = Render.create({
-    element: document.body,
+    element: canvas.elt,
     engine: engine,
-    //gravity: -1,
     options: {
         width: 800,
         height: 600,
         showVelocity: true,
-        showAngleIndicator: true
+        showAngleIndicator: true,
+        background: "red"
     }
   }); Render.run(render);
 
@@ -120,15 +124,16 @@ function setup() {
 
 
 /////////////////////////// DRAW //////////////////////////////
+function mouseClicked() {
+  contents.push(new Content(mouseX, mouseY));
+  console.log(contents);
+}
+
 function draw() {
   // contents.push(new Content(400,500));
   for (let i = 0; i < contents.length; i++) {
     contents[i].show();
   }
-}
-
-function mouseClicked() {
-  contents.push(new Content(mouseX, mouseY));
 }
 
 function windowResized() {
