@@ -24,10 +24,18 @@ canvas {
   z-index: -1;
 }
 
+.content-wrapper {
+  width: 80%;
+}
+
 .content {
   width: 100%;
   /* display: flex;
   flex-wrap: wrap; */
   align-content: center;
   justify-content: center;
+}
+
+img {
+  width: 8%;
 }
