@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "PxGrotesk";
+  src: url('./fonts/PxGrotesk/PxGrotesk-Bold.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "PxGrotesk";
+  src: url('./fonts/PxGrotesk/PxGrotesk-Regular.ttf');
+  font-weight: normal;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    cursor: default;
+    /* overflow: hidden; */
+}
+
+canvas {
+  display: block;
+  /* position: absolute; */
+  top: 0;
+  z-index: -1;
+}

@@ -31,13 +31,13 @@ function draw() {
   strokeWeight(5);
   point(attractor.x, attractor.y);
   pop();
-  
+
 
   //thumbnails
   background(51);
   stroke(255);
   strokeWeight(4);
-  particles.push(new Particle(random(width), random(height)));
+  particles.push(new Thumbnail(random(width), random(height)));
 
   if (particles.length > 100) {
     particles.splice(0, 1);

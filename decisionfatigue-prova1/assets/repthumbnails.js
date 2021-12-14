@@ -1,4 +1,4 @@
-class Particle {
+class Thumbnail {
 
   constructor(x, y) {
     this.pos = createVector(x, y);
@@ -17,9 +17,11 @@ class Particle {
   }
 
   show() {
-    stroke(255, 255);
-    strokeWeight(4);
+    stroke("red");
+    strokeWeight(10);
     line(this.pos.x, this.pos.y, this.prev.x, this.prev.y);
+
+
 
     this.prev.x = this.pos.x;
     this.prev.y = this.pos.y;
