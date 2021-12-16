@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "PxGrotesk";
+  src: url('./fonts/PxGrotesk/PxGrotesk-Bold.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "PxGrotesk";
+  src: url('./fonts/PxGrotesk/PxGrotesk-Regular.ttf');
+  font-weight: normal;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    cursor: default;
+    /* overflow: hidden; */
+}
+
+.array-wrapper {
+  width: 80vw;
+  height: 100;
+  top: -50vw;
+  left: -50vw;
+  
+  align-content: center;
+  margin-top: -50px;
+  margin-left: -50px;
+  
+}
+
+.array {
+  /* position: absolute;*/
+  /* width: 50; */
+  /* align-content: center; */
+  /* justify-content: center;  */
+}
+
+img {
+  margin: 10px;
+  width: 8%;
+  vertical-align: middle;
+}
