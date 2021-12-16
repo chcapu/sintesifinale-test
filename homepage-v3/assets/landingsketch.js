@@ -48,7 +48,7 @@ let mouse;
 /////////////////////////////////////////////////////////////////
 
 function preload(){
-  for (let i = 0; i <= 3; i++) {
+  for (let i = 0; i <= 25; i++) {
     myImages[i] = loadImage("./assets/images/btn" + i + ".png", imagesLoaded);
   }
 }
@@ -63,6 +63,7 @@ function setup() {
   canvas = createCanvas(windowWidth,windowHeight);
   //canvas.style("z-index", "1");
   background("rgb(245,245,245)");
+  textFont("PxGrotesk");
 
   //matter.js interaction : setup
   engine = Engine.create();
@@ -134,13 +135,64 @@ function draw() {
   background("rgb(245,245,245)");
   pop();
 
+  //text title and subtitle
+  // let div = createDiv('div');
+  // div.addClass('content-wrapper');
+  // let h1 = createElement('h1', 'ATTENTION WAR');
+  // h1.style('font-family', 'PxGrotesk');
+  // h1.style('font-size', '13.3vw');
+  // h1.style('z-index', '-1');
+  push();
+  let h1 = "ATTENTION WAR";
+  textAlign(CENTER, TOP);
+  fill(0);
+  textSize(windowWidth/100*12.6);
+  text(h1, windowWidth/2, 0);
+  let h1width = textWidth(h1);
+  pop();
+
+  push();
+  let h2 = "A guide to streaming platforms' user retention strategies";
+  textAlign(LEFT,TOP);
+  fill(0);
+  textSize(18);
+  text(h2, 25, h1width*0.092+40);
+  pop();
+
+
   //matter.js interaction : draw
-  if (boxes.length <= 3) {
+  if (boxes.length <= 29) {
     //for (let i = 0; i < 1; i++) {
-    boxes.push(new Box(myImages[0], windowWidth/2, windowHeight/2, 286, 96));
+    boxes.push(new Box(myImages[0], windowWidth/2, windowHeight/2, 268, 90));
     boxes.push(new Box(myImages[1], windowWidth/2, windowHeight/2, 217, 75));
     boxes.push(new Box(myImages[2], windowWidth/3, windowHeight/2, 162, 60));
     boxes.push(new Box(myImages[3], windowWidth/3, windowHeight/2, 280, 96));
+    boxes.push(new Box(myImages[4], windowWidth/2, windowHeight/2, 76, 38));
+    boxes.push(new Box(myImages[5], windowWidth/2, windowHeight/2, 274, 100));
+    boxes.push(new Box(myImages[6], windowWidth/3, windowHeight/2, 229, 46));
+    boxes.push(new Box(myImages[7], windowWidth/3, windowHeight/2, 371, 60));
+    boxes.push(new Box(myImages[8], 0, windowHeight/2, 115, 45));
+    boxes.push(new Box(myImages[9], 0, windowHeight/2, 54, 76));
+    boxes.push(new Box(myImages[10], 0, windowHeight/2, 266, 70));
+    boxes.push(new Box(myImages[11], 0, windowHeight/2, 423, 90));
+    boxes.push(new Box(myImages[12], windowWidth, windowHeight/2, 322, 76));
+    boxes.push(new Box(myImages[13], windowWidth, windowHeight/2, 87, 87));
+    boxes.push(new Box(myImages[14], windowWidth, windowHeight/2, 99, 99));
+    boxes.push(new Box(myImages[15], windowWidth, windowHeight/2, 322, 76));
+    boxes.push(new Box(myImages[16], windowWidth, windowHeight/2, 24, 24));
+    boxes.push(new Box(myImages[16], 0, windowHeight, 24, 24));
+    boxes.push(new Box(myImages[16], windowWidth, 0, 24, 24));
+    boxes.push(new Box(myImages[17], windowWidth, windowHeight/2, 136, 40));
+    boxes.push(new Box(myImages[18], 0, windowHeight/2, 66, 36));
+    boxes.push(new Box(myImages[19], 0, windowHeight/2, 290, 69));
+    boxes.push(new Box(myImages[20], 0, windowHeight, 32, 32));
+    boxes.push(new Box(myImages[20], windowWidth, 0, 32, 32));
+    boxes.push(new Box(myImages[20], windowWidth, 0, 32, 32)); //24
+    boxes.push(new Box(myImages[21], 0, 0, 210, 60));
+    boxes.push(new Box(myImages[22], windowWidth, windowHeight, 192, 60));
+    boxes.push(new Box(myImages[23], 0, 0, 230, 73));
+    boxes.push(new Box(myImages[24], 0, 0, 54, 52));
+    boxes.push(new Box(myImages[25], windowWidth, windowHeight, 226, 54));
     //}
   }
 
